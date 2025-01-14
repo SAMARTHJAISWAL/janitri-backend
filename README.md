@@ -35,7 +35,7 @@ A Spring Boot backend application for managing patient heart rate monitoring dev
 ### Prerequisites
 - Java 11 or higher
 - Maven 3.6 or higher
-- Your favorite IDE (VS Code)
+- VS Code
 
 ### Installation Steps
 
