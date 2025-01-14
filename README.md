@@ -41,7 +41,7 @@ A Spring Boot backend application for managing patient heart rate monitoring dev
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/janitri-backend.git
+git clone https://github.com/SAMARTHJAISWAL/janitri-backend.git
 cd janitri-backend
 ```
 
