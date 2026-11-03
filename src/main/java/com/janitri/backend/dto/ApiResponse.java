@@ -1,7 +1,5 @@
 package com.janitri.backend.dto;
 
-import com.janitri.backend.models.HeartRateData;
-
 public class ApiResponse<T> {
     private boolean success;
     private String message;
@@ -55,9 +53,5 @@ public class ApiResponse<T> {
 
     public void setData(T data) {
         this.data = data;
-    }
-
-    public static Object success(HeartRateData heartRateData, String string) {
-        throw new UnsupportedOperationException("Unimplemented method 'success'");
     }
 }

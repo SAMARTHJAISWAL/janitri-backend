@@ -1,0 +1,25 @@
+# Build output
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Application logs (written by logback-spring.xml)
+logs/
+
+# Local H2 file databases
+data/
+*.db
+*.mv.db
+*.trace.db
+
+# Environment files
+.env
+.env.*
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+.DS_Store

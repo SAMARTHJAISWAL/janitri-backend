@@ -1,6 +1,7 @@
 package com.janitri.backend.dto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class PatientDTO {
@@ -12,8 +13,10 @@ public class PatientDTO {
     private String gender;
     private String medicalHistory;
     private String emergencyContact;
+    @NotNull(message = "Assigned doctor ID is required")
     private Long assignedDoctorId;
     private String deviceId;
+    @NotBlank(message = "Status is required")
     private String status;
 
     // Getters and Setters

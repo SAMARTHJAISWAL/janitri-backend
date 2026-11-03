@@ -21,9 +21,9 @@ public class HeartRateController {
     private HeartRateService heartRateService;
 
     @PostMapping
-    public ResponseEntity<Object> recordHeartRate(@Valid @RequestBody HeartRateDTO heartRateDTO) {
+    public ResponseEntity<ApiResponse<HeartRateData>> recordHeartRate(@Valid @RequestBody HeartRateDTO heartRateDTO) {
         HeartRateData heartRateData = heartRateService.recordHeartRate(heartRateDTO);
-        return ResponseEntity.ok(ApiResponse.success(heartRateData, "Heart rate data recorded successfully"));
+        return ResponseEntity.ok(ApiResponse.success("Heart rate data recorded successfully", heartRateData));
     }
 
     @GetMapping("/patient/{patientId}")

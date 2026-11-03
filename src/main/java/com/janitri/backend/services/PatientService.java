@@ -8,6 +8,7 @@ import com.janitri.backend.dto.PatientDTO;
 import com.janitri.backend.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
@@ -18,6 +19,7 @@ public class PatientService {
     @Autowired
     private UserRepository userRepository;
 
+    @Transactional
     public Patient createPatient(PatientDTO patientDTO) {
         User doctor = userRepository.findById(patientDTO.getAssignedDoctorId())
                 .orElseThrow(() -> new ResourceNotFoundException("Doctor not found"));
