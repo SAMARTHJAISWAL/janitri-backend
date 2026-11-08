@@ -1,5 +1,7 @@
 package com.janitri.backend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -21,6 +23,8 @@ public class User {
     @Column(unique = true)
     private String email;
 
+    // BCrypt hash; never serialised into API responses
+    @JsonIgnore
     @NotBlank(message = "Password is required")
     private String password;
 
@@ -29,6 +33,9 @@ public class User {
 
     private String role;
 
+    // Not serialised: Patient -> assignedDoctor -> patients -> ... would recurse forever.
+    // Use GET /api/patients/doctor/{doctorId} instead.
+    @JsonIgnore
     @OneToMany(mappedBy = "assignedDoctor", cascade = CascadeType.ALL)
     private List<Patient> patients = new ArrayList<>();
 

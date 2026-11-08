@@ -1,5 +1,7 @@
 package com.janitri.backend.dto;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
@@ -8,6 +10,8 @@ public class HeartRateDTO {
     @NotNull(message = "Patient ID is required")
     private Long patientId;
     @NotNull(message = "Heart rate value is required")
+    @Min(value = 1, message = "Heart rate must be between 1 and 300 bpm")
+    @Max(value = 300, message = "Heart rate must be between 1 and 300 bpm")
     private Integer heartRate;
     private LocalDateTime timestamp;
     private Integer bloodPressureSystolic;

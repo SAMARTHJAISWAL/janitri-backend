@@ -1,5 +1,7 @@
 package com.janitri.backend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -33,6 +35,9 @@ public class Patient {
     @JoinColumn(name = "doctor_id")
     private User assignedDoctor;
 
+    // Not serialised: HeartRateData -> patient -> heartRateData -> ... would recurse forever.
+    // Use GET /api/heart-rate/patient/{patientId} instead.
+    @JsonIgnore
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private List<HeartRateData> heartRateData = new ArrayList<>();
 
